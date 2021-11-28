@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  security-app:
+    image: maven:3.8.4-eclipse-temurin-17
+    container_name: spring-security-app
+    ports:
+      - "9001:9001"
+    volumes:
+      - .:/usr/src/app
+      - ${HOME}/.m2:/root/.m2
+    working_dir: /usr/src/app
+    command: mvn spring-boot:run
+    restart: always
